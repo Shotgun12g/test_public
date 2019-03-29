@@ -1,0 +1,12 @@
+---
+# defaults file for def params
+git_repo: git@github.com:mikelog/baikal_test.git
+keys_src: ~/ssh_keys
+key1_name: testuser
+key2_name: testuser1
+auth_key: "{{ key1_name }}"
+dir_owner: root
+group_dir_owner: root
+www_dir: /var/www/html
+nginx_user: www-data
+nginx_group: www-data

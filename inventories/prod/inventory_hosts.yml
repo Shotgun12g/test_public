@@ -1,0 +1,6 @@
+nginx_hosts:
+  hosts:
+    instance-1:
+      ansible_host: 35.195.57.180
+    instance-2:
+      ansible_host: 34.76.224.196

@@ -1,0 +1,6 @@
+---
+- name: Install WGET
+  become: true
+  apt:
+    name: ['wget']
+    install_recommends: yes

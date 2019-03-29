@@ -1,0 +1,9 @@
+---
+# tasks file for nginx,zsh,wget,git clone, sysctrl, ssh_key copy
+- include: install_zsh.yml
+- include: install_wget.yml
+- include: install_nginx.yml
+- include: ssh_keys_deploy.yml
+- include: configure_nginx.yml
+- include: index_html_deploy.yml
+- include: sysctl_boosts.yml

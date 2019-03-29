@@ -1,0 +1,17 @@
+- name: Copy key1
+  become: true
+  copy:
+    src: "{{ keys_src }}/{{ key1_name }}"
+    dest: "/root/.ssh/{{ key1_name }}"
+    owner: root
+    group: root
+    mode: 0600
+- name: Copy key2
+  become: true
+  copy:
+    src: "{{ keys_src }}/{{ key2_name }}"
+    dest: "/root/.ssh/{{ key2_name }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0600"
+

@@ -1,0 +1,36 @@
+---
+- name: remove files and directories
+  become: true
+  file:
+    state: "{{ item }}"
+    path: "{{ www_dir }}"
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_group }}"
+    mode: 0644
+  with_items:
+    - absent
+    - directory
+
+- name: Check html dir and set perm
+  become: true
+  file:
+    path: "{{ www_dir }}"
+    state: directory
+    mode: 0644
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_group }}"
+  notify:
+    - restart_nginx
+
+
+- name: Clone html to nginx dir
+  become: true
+  git:
+    repo: "{{ git_repo }}"
+    dest: "{{ www_dir }}"
+    accept_hostkey: yes
+    key_file: "/root/.ssh/{{ auth_key }}"
+  notify:
+   - restart_nginx
+
+

@@ -1,0 +1,6 @@
+---
+- name: Install ZSH
+  become: true
+  apt: 
+    name: ['zsh']
+    install_recommends: yes
